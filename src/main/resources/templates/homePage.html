@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud 2025</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome to Taco Cloud 🎉</h1>
+        <img th:src="@{/images/TacoCloud.png}" alt="An image of some tacos"/>
+    </div>
+
+    <div class="italics justify margin-4rem">
+        <h3>Step 1: render the home page</h3>
+        <h5>`HomePageController` [controller] + `homePage.html` [view]</h5>
+        <p>The fact that this page is showing up means: <br>
+            the `HomePageController` is properly handling
+            the browser's `GET` request for the root URL "/". </p>
+        <p>
+            The controller returns the name of the Thymeleaf template `homePage` as a response.
+            Thymeleaf is sending this template to properly render this view. </p>
+
+        <p> Step 1: ✅</p>
+
+        <button class="btn-lg-cta"> Let's eat some tacos [onward] 🌮🎉</button>
+    </div>
+</body>
+</html>
+
