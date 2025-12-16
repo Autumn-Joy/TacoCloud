@@ -1,0 +1,36 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #f6d6d6;
+    color: #201c18;
+    text-align: center;
+}
+
+
+
+img {
+    max-width: 50vw;
+    border-radius: .5rem 5rem;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.italics {
+    font-style: italic;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.margin-4rem {
+    margin: 4rem;
+}
+
+.btn-lg-cta {
+    padding: 1rem 2rem;
+    background-color: lightgoldenrodyellow;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-lg-cta:hover {
+    background-color: greenyellow;
+}
