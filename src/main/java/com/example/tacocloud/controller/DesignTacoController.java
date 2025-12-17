@@ -27,8 +27,6 @@ import com.example.tacocloud.domain.Ingredient;
 import com.example.tacocloud.domain.Ingredient.Type;
 import com.example.tacocloud.domain.Taco;
 import com.example.tacocloud.domain.TacoOrder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Slf4j
 @Controller
@@ -79,6 +77,14 @@ public class DesignTacoController {
                 .filter(ingredient -> ingredient.getType().equals(type))
                 .collect(Collectors.toList());
     }
+
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco {}", taco);
+        return "redirect:/orders/current";
+    }
+
 
 }
 
