@@ -26,6 +26,7 @@ img {
 }
 
 .btn-lg-cta {
+    border: solid 4px white;
     padding: 1rem 2rem;
     background-color: lightgoldenrodyellow;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -41,4 +42,8 @@ img {
 
 .input {
     width: 50vw;
+}
+
+a {
+    text-decoration: none;
 }
