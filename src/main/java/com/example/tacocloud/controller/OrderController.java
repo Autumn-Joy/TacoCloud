@@ -1,6 +1,8 @@
 package com.example.tacocloud.controller;
 
 import com.example.tacocloud.domain.TacoOrder;
+import jakarta.validation.Valid;
+import org.springframework.validation.Errors;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +21,16 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(TacoOrder order, SessionStatus sessionStatus) {
+    public String processOrder(@Valid TacoOrder order, Errors errors,
+                               SessionStatus sessionStatus) {
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
         // add persistence here when db gets connected
         log.info("Order submitted: {}", order);
         sessionStatus.setComplete();
 
-        return "redirect: /";
+        return "redirect:/";
     }
 
 }
