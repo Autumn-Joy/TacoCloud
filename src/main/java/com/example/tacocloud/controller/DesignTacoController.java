@@ -19,6 +19,8 @@ import org.springframework.validation.Errors;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +55,8 @@ public class DesignTacoController {
         Iterable<Ingredient> ingredients = ingredientRepo.findAll();
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
-            model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
+            model.addAttribute(type.toString().toLowerCase(),
+                    filterByType(ingredients, type));
         }
 
     }
@@ -73,9 +76,8 @@ public class DesignTacoController {
         return "design";
     }
 
-    private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients
-                .stream()
+    private Iterable<Ingredient> filterByType(Iterable<Ingredient> ingredients, Type type) {
+        return StreamSupport.stream(ingredients.spliterator(), false)
                 .filter(ingredient -> ingredient.getType().equals(type))
                 .collect(Collectors.toList());
     }
