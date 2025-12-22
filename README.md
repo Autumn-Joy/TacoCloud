@@ -16,16 +16,22 @@ This project uses JUnit tests. The command for running tests is:
 ./mvnw test
 ```
 
-### Ch. 1: Building the homepage
-**the MVC pattern & basic Spring project structure**
+## Ch. 1: Building the homepage
+### **The MVC pattern & basic Spring project structure**
 
 - a controller class that handles requests for the home page
 - a view template that defines what the home page looks like
 - a simple test class to test the home page
 
-### Ch. 2: Display model data and process form input
+## Ch. 2: Display model data and process form input
 
-**pt. 1**: the designTaco page 
+### **pt. 1**: the designTaco page 
 - a controller that handles `GET` and `POST` for `/design`
 - the `/design` view, a form using Thymeleaf for data binding [`th:*`] etc.
 - a converter that takes a string from the form and returns the corresponding `Ingredient`
+
+### **pt. 2:** validation 
+- `@NotBlank`, `@Valid`, etc.
+
+## Ch. 3: Connecting to a database 
+
