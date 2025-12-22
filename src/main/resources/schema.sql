@@ -1,6 +1,6 @@
 create table if not exists taco_order
 (
-    id              bigint auto_increment primary key,
+    id              bigint primary key,
     delivery_name   varchar(50) not null,
     delivery_street varchar(50) not null,
     delivery_city   varchar(50) not null,
@@ -13,7 +13,7 @@ create table if not exists taco_order
 );
 create table if not exists taco
 (
-    id             bigint auto_increment primary key,
+    id             bigint primary key,
     name           varchar(50) not null,
     taco_order_key bigint      not null,
     created_at     timestamp   not null,
