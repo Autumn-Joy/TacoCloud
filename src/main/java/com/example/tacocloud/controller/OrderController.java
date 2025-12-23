@@ -1,6 +1,7 @@
 package com.example.tacocloud.controller;
 
 import com.example.tacocloud.domain.TacoOrder;
+import com.example.tacocloud.repository.OrderRepository;
 import jakarta.validation.Valid;
 import org.springframework.validation.Errors;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,12 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("tacoOrder")
 public class OrderController {
 
+    private OrderRepository orderRepo;
+
+    public OrderController(OrderRepository orderRepo) {
+        this.orderRepo = orderRepo;
+    }
+
     @GetMapping("/current")
     public String orderForm() {
         return "orderForm";
@@ -26,8 +33,8 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
-        // add persistence here when db gets connected
-        log.info("Order submitted: {}", order);
+
+        orderRepo.save(order);
         sessionStatus.setComplete();
 
         return "redirect:/";
