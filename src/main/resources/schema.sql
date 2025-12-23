@@ -12,7 +12,6 @@ create table if not exists taco_order
     placed_at       timestamp   not null
 );
 
-drop table taco CASCADE;
 create table if not exists taco
 (
     id             bigint primary key,
@@ -30,7 +29,6 @@ create table if not exists ingredient
     type varchar(10) not null
 );
 
-drop table ingredient_ref;
 create table if not exists ingredient_ref
 (
     ingredient varchar(4) not null,
