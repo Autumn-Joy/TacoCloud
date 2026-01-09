@@ -25,10 +25,23 @@ public class Taco {
     private Date createdAt =  new Date();
 
     @Size(min=1, message = "You must choose at least 1 ingredient.")
+
     @ManyToMany()
+    @JoinTable(
+            name = "taco_ingredient",
+            joinColumns = @JoinColumn(name = "taco_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private List<Ingredient> ingredients;
 
+
+    @ManyToOne
+    @JoinColumn(name = "taco_order_id", nullable = false)
+    private TacoOrder tacoOrder;
+
+    // remember LomBok generates the getters and setters already
+
     public void addIngredient(Ingredient ingredient) {
+
         this.ingredients.add(ingredient);
     }
 }
