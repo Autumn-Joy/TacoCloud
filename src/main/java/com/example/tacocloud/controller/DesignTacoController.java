@@ -88,11 +88,12 @@ public class DesignTacoController {
             @ModelAttribute TacoOrder tacoOrder) {
 
         if (errors.hasErrors()) {
+            log.error("errors occurred" + errors.getAllErrors());
             return "design";
         }
 
         tacoOrder.addTaco(taco);
-        log.info("Processing taco {}", taco);
+        log.info("Processing taco {}", taco.getName());
         return "redirect:/orders/current";
     }
 

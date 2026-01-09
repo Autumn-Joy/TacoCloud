@@ -31,8 +31,10 @@ public class OrderController {
     public String processOrder(@Valid TacoOrder order, Errors errors,
                                SessionStatus sessionStatus) {
         if (errors.hasErrors()) {
+            log.error("errors occured: {}", errors.getAllErrors());
             return "orderForm";
         }
+
 
         orderRepo.save(order);
         sessionStatus.setComplete();
