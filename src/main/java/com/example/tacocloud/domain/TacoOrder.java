@@ -18,6 +18,7 @@ import java.util.List;
 @Entity
 @Table(name = "taco_order")
 public class TacoOrder implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
