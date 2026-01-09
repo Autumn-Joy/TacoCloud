@@ -11,7 +11,7 @@
   <h1>Design your taco!</h1>
   <img th:src="@{/images/TacoCloud.png}" alt="A picture of Taco Cloud Logo, with three tacos">
 
-  <form method="POST" th:object="${taco}">
+  <form method="POST" th:action="@{/design}" th:object="${taco}">
 
     <h3>Designate your wrap:</h3>
 
@@ -68,6 +68,11 @@
       <label>
       <input class="input" type="text" th:field="*{name}"/>
       </label>
+      <br>
+      <span class="validation-error"
+            th:if="${#fields.hasErrors('name')}"
+            th:errors="*{name}">Please enter a name.</span>
+      <br>
     <br>
     </div>
 
