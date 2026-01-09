@@ -44,3 +44,10 @@ This project uses JUnit tests. The command for running tests is:
 - updated controllers to use new repositories
   - `DesignTacoController` now saves tacos with ingredients
   - `OrderController` saves orders with the tacos and their ingredients
+
+## Ch. 4: Connecting to a non-relational database
+
+- prioritizing relational databases for this project. Proceeding to chapter 5.
+
+## Ch. 5: Configuring Spring Security
+- added Spring Security to the project with Maven
