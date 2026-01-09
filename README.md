@@ -1,7 +1,7 @@
 # TacoCloud
 A full-stack Spring Boot web app built alongside *Spring in Action, Sixth Edition* to explore the Spring ecosystem.
 
-## Notes from during building:
+## Notes from building:
 
 ### Manually running & testing the project
 
@@ -35,3 +35,12 @@ This project uses JUnit tests. The command for running tests is:
 
 ## Ch. 3: Connecting to a database 
 
+- chose to use PostgreSQL instead of H2 for persistence across restarts
+  - as well as for experience connecting an external database to a Spring Boot app
+- defined the repository layer
+  - defined an `IngredientRepository`, extends `CrudRepository`
+  - defined a `OrderRepository`, extends `CrudRepository`
+  - refactored db schema to use many-to-one relationship between `Taco` and `Order` istead of One-to-Many
+- updated controllers to use new repositories
+  - `DesignTacoController` now saves tacos with ingredients
+  - `OrderController` saves orders with the tacos and their ingredients
