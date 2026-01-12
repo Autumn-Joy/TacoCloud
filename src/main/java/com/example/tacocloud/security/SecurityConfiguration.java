@@ -1,4 +1,4 @@
-package com.example.tacocloud.service;
+package com.example.tacocloud.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

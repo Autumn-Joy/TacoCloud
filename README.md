@@ -62,6 +62,14 @@ Steps of configuring Spring Security:
   - uses `UserDetailsService` from the Spring Security core library (the docs linked [here](https://docs.spring.io/spring-security/reference/api/java/org/springframework/security/core/userdetails/UserDetailsService.html))
 - [3] the implementation `UserDetailsServiceImplementation` allows users to be found by their username, or returns an error if the user is not found
 
+-  [4] Registration: 
+  - Part 1: the controller: `RegistrationController` + `RegistrationFormDTO`
+      - `RegistrationForm` is a Thymeleaf form that allows users to register for an account
+      - `RegistrationFormDTO` is a data transfer object (DTO) that defines the fields in the registration form
+      - `RegistrationFormDTO` defines the toUser() method, called by RegistrationController
+      - `toUser()` takes in a passwordEncoder instance from the RegistrationController
+      - `toUser()` uses that parameter to encode the password and create a User instance
+      - `RegistrationController` handles the form submission and saves the user to the database
 
 **lesson:**
 - For Spring Boot projects, put @Configuration classes in a subpackage, 
