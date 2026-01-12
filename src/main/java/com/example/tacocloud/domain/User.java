@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
 
