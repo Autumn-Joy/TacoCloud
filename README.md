@@ -63,6 +63,11 @@ Steps of configuring Spring Security:
 - [3] the implementation `UserDetailsServiceImplementation` allows users to be found by their username, or returns an error if the user is not found
 
 
+**lesson:**
+- For Spring Boot projects, put @Configuration classes in a subpackage, 
+- not at the same level as the main application class, 
+- to avoid subtle bean scanning issues.
+
 - [x] build login page that matches website
 - [x] add registration page
 - [x] apply different security rules for different pages:
