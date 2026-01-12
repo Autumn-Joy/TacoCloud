@@ -54,11 +54,15 @@ This project uses JUnit tests. The command for running tests is:
 - configure Spring Security
 
 Steps of configuring Spring Security:
-- Java config with a basic security class, `SecurityConfig`
+- [1] Define a basic security class, `SecurityConfig`
   - Spring Security provides many password encoders, but for this project, we're using `BCryptPasswordEncoder`
   - principle: "The password in the database is never decoded."
   - `SecurityConfig` will serve as the main location for the security rules of the application
-Goals:
+- [2] Define a basic `UserDetailService` interface
+  - uses `UserDetailsService` from the Spring Security core library (the docs linked [here](https://docs.spring.io/spring-security/reference/api/java/org/springframework/security/core/userdetails/UserDetailsService.html))
+- [3] the implementation `UserDetailsServiceImplementation` allows users to be found by their username, or returns an error if the user is not found
+
+
 - [x] build login page that matches website
 - [x] add registration page
 - [x] apply different security rules for different pages:
