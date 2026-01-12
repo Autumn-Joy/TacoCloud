@@ -70,6 +70,9 @@ Steps of configuring Spring Security:
       - `toUser()` takes in a passwordEncoder instance from the RegistrationController
       - `toUser()` uses that parameter to encode the password and create a User instance
       - `RegistrationController` handles the form submission and saves the user to the database
+  - Part 2: the view
+    - Thymeleaf template `registration.html` uses the fields as defined in `RegistrationFormDTO`
+    - the form is submitted to `/register`
 
 **lesson:**
 - For Spring Boot projects, put @Configuration classes in a subpackage, 
