@@ -50,4 +50,20 @@ This project uses JUnit tests. The command for running tests is:
 - prioritizing relational databases for this project. Proceeding to chapter 5.
 
 ## Ch. 5: Configuring Spring Security
-- added Spring Security to the project with Maven
+- add Spring Security to the project with Maven
+- configure Spring Security
+
+Steps of configuring Spring Security:
+- Java config with a basic security class, `SecurityConfig`
+  - Spring Security provides many password encoders, but for this project, we're using `BCryptPasswordEncoder`
+  - principle: "The password in the database is never decoded."
+  - `SecurityConfig` will serve as the main location for the security rules of the application
+Goals:
+- [x] build login page that matches website
+- [x] add registration page
+- [x] apply different security rules for different pages:
+  - homePage and registration shouldn't require login
+  - designTaco and orderHistory require login
+
+Question:
+  Since the book is using H2 and I'm using PostgreSQL, the security approach will be different?
