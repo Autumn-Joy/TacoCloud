@@ -2,10 +2,8 @@ package com.example.tacocloud.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -21,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @RequiredArgsConstructor
+@Table(name = "users")
 public class User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
