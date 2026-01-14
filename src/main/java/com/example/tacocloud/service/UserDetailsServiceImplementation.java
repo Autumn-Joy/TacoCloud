@@ -3,17 +3,32 @@ package com.example.tacocloud.service;
 import com.example.tacocloud.domain.User;
 import com.example.tacocloud.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class UserDetailsServiceImplementation {
+@Service
+public class UserDetailsServiceImplementation implements UserDetailsService {
+    
+    private final UserRepository userRepo;
+    
+    public UserDetailsServiceImplementation(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
+    
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-    @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return username -> {
-            User user = userRepository.findByUsername(username);
-            if (user != null) return user;
+        UserDetails userDetails = userRepo.findByUsername(username);
 
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        };
-    };
+        if (userDetails == null) {
+            throw new UsernameNotFoundException(
+                    "User not found with username: " + username
+            );
+        }
+
+        return userDetails;
+
+    }
 }
