@@ -73,17 +73,20 @@ Steps of configuring Spring Security:
   - Part 2: the view
     - Thymeleaf template `registration.html` uses the fields as defined in `RegistrationFormDTO`
     - the form is submitted to `/register`
+  - Part 3: the security rules
+    - `SecurityConfig` defines the security rules for `/register`
+    - Spring Security enables CSRF protection by default
+  
+  - Summary:
+    - home, login, and register pages accessible without auth
+    - register form properly stores new user in db
+    - login flow properly locates user by username and compares password to hashed password stored in db
 
-**lesson:**
+**quick tip:**
 - For Spring Boot projects, put @Configuration classes in a subpackage, 
 - not at the same level as the main application class, 
-- to avoid subtle bean scanning issues.
+- to avoid "subtle bean scanning" issues.
 
-- [x] build login page that matches website
-- [x] add registration page
-- [x] apply different security rules for different pages:
-  - homePage and registration shouldn't require login
-  - designTaco and orderHistory require login
 
 Question:
   Since the book is using H2 and I'm using PostgreSQL, the security approach will be different?
